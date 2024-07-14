@@ -73,7 +73,7 @@ void get_stop_syscall(pid_t pid){
   struct ptrace_syscall_info info;
   int err = ptrace(PTRACE_GET_SYSCALL_INFO, pid, sizeof(struct ptrace_syscall_info), &info);
   if (err == -1) { 
-    fprintf(stderr, "PTRACE_GET_SYSCALL_INFO failed: %s\n", strerror(errno));
+    fprintf(stderr, "error collecint syscall info: %s\n", strerror(errno));
     exit(errno);
   }
   int syscall = -1;
@@ -82,19 +82,25 @@ void get_stop_syscall(pid_t pid){
   if (info.op == PTRACE_SYSCALL_INFO_ENTRY) { 
     timeset = 1;
     call = seccomp_syscall_resolve_num_arch(info.arch, info.entry.nr);
+    printf("%s - ", call);
     if (getrusage(0, &usage) == -1) {
-      fprintf(stderr, "could not get usage for %s. failed with%s\n", call, strerror(errno));
+      fprintf(stderr, "error collecting [ENTRY] usage for %s\n. failed with error: %s", call, strerror(errno));
+      printf("fail\n");
       exit(errno);
     }
     call_time = usage.ru_stime;
   } else if (info.op == PTRACE_SYSCALL_INFO_EXIT && timeset != 0){ 
     if (getrusage(0, &usage) == -1){
-      fprintf(stderr, "failed to get usage on exit %s. failed with %s\n", call, strerror(errno)); 
+      fprintf(stderr, "error collecting [EXIT] usage for %s\n. failed with error: %s", call, strerror(errno));
+      printf("faile\n");
       exit(errno);
     }
-    timersub(&call_time, &usage.ru_stime, &difference);
-    printf("%s completed in %lds %ldus\n", difference.tv_sec, difference.tv_usec);
-
+    printf("ok\n");
+    timersub(&usage.ru_stime, &call_time, &difference);
+    printf("\tstart: %lds %ldμs\n", call_time.tv_sec, call_time.tv_usec);
+    printf("\tstop: %lds %ldμs\n", usage.ru_stime.tv_sec, usage.ru_stime.tv_usec);
+    printf("\tduration: %lds %ldμs\n", difference.tv_sec, difference.tv_usec);
+    printf("\n");
   }
 }
 
