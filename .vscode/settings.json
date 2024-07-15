@@ -1,0 +1,18 @@
+{
+  "files.associations": {
+    "fcntl.h": "c",
+    "stdbool.h": "c",
+    "dwarf.h": "c",
+    "libdwp.h": "c",
+    "optional": "c",
+    "istream": "c",
+    "ostream": "c",
+    "ratio": "c",
+    "system_error": "c",
+    "array": "c",
+    "functional": "c",
+    "tuple": "c",
+    "type_traits": "c",
+    "utility": "c"
+  }
+}
