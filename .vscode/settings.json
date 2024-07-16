@@ -13,6 +13,16 @@
     "functional": "c",
     "tuple": "c",
     "type_traits": "c",
-    "utility": "c"
+    "utility": "c",
+    "ptrace.h": "c",
+    "types.h": "c",
+    "user.h": "c",
+    "uio.h": "c",
+    "struct_iovec.h": "c",
+    "breakpoint.h": "c",
+    "stdio.h": "c",
+    "child.h": "c",
+    "stdlib.h": "c",
+    "time_functions.h": "c"
   }
 }

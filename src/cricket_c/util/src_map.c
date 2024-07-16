@@ -22,38 +22,72 @@ bool _die_is_func(Dwarf_Die *dwarf_die){
   return dwarf_tag(dwarf_die) == DW_TAG_subprogram;
 }
 
-FnNode* _make_node_die(Dwarf_Die *dwarf_die){
-  FnNode* node = calloc(1, sizeof(FnNode));
-  node->fn.name = dwarf_diename(dwarf_die);
-  if (dwarf_lowpc(dwarf_die, &node->fn.start) == -1){ // cowabunga
+Dwarf_Word _get_die_line_number(Dwarf_Die *die) {
+    Dwarf_Attribute attr;
+    Dwarf_Word line_number = 0;
+
+    if (dwarf_attr(die, DW_AT_decl_line, &attr) != NULL) {
+        if (dwarf_formudata(&attr, &line_number) == 0) {
+            return line_number;
+        }
+    }
+
+    return 0;  // Return 0 if line number not found
+}
+
+void _map_dwarf_fn(InstnTable* t, const char* source_file, Dwarf_Die *dwarf_die){
+  Function *fn = malloc(sizeof(Function));
+  fn->name = dwarf_diename(dwarf_die);
+  fn->src_file = source_file;
+  fn->line = _get_die_line_number(dwarf_die);
+  SourceInfo i = { .kind = FUNCTION, 
+                   .source = {
+                      .function = fn
+                    }
+                  };
+
+  size_t pc;
+  if (dwarf_lowpc(dwarf_die, &pc) == -1){ // cowabunga
     fprintf(stderr, "no lowpc %s\n", strerror(errno));
     exit(errno);
   }
-  if (dwarf_highpc(dwarf_die, &node->fn.end) == -1){ // cowabunga
-    fprintf(stderr, "no highpc %s\n", strerror(errno));
+  table_insert_info(t, i, pc); // lowpc
+  if (dwarf_highpc(dwarf_die, &pc) == -1){ // cowabunga
+    fprintf(stderr, "no high %s\n", strerror(errno));
     exit(errno);
   }
-  return node;
+  table_insert_info(t, i, pc); // highpc
 }
 
-FnNode* _walk_tree(Dwarf_Die *dwarf_die, int *listLen, FnNode* fn){ 
+void _walk_tree(InstnTable *t, Dwarf_Die *dwarf_die, const char* src_file){ 
   Dwarf_Die die = *dwarf_die;
   do
     {
       Dwarf_Die child;
       if (_die_is_func(&die)){
-        fn->next = _make_node_die(&die);
-        fn = fn->next;
-        *listLen += 1;
+        _map_dwarf_fn(t, src_file, &die);
       }
       if (dwarf_child (&die, &child) == 0)
-	      fn = _walk_tree(&child, listLen, fn);
+	      _walk_tree(t, &child, src_file);
     }
   while (dwarf_siblingof (&die, &die) == 0);
-  return fn; // return last node
 }
 
-FileNode* map_functions(const char* elf_file) { 
+const char* _get_cu_source_file(Dwarf_Die *cu_die) {
+    Dwarf_Attribute attr_mem;
+    Dwarf_Attribute *attr;
+    attr = dwarf_attr(cu_die, DW_AT_name, &attr_mem);
+    if (attr != NULL) {
+        const char *filename;
+        filename = dwarf_formstring(attr);
+        if (filename != NULL){
+          return filename;
+        }
+    }
+    return NULL;  // Return NULL if filename not found
+}
+
+InstnTable* map_functions(const char* elf_file) { 
   /*
     TODO untested on multifile programs (likely crashes)
   */
@@ -70,19 +104,13 @@ FileNode* map_functions(const char* elf_file) {
   Dwarf_CU *cu = NULL;
   Dwarf_Die cudie, subdie;
   uint8_t unit_type;
-  FileNode *head = NULL;
+  InstnTable *t = table_new();
+  const char* file_name;
   while(dwarf_get_units(dbg, cu, &cu, NULL,
     &unit_type, &cudie, &subdie) == 0){
-      FileNode *tail = calloc(1, sizeof(FileNode));
-      int n_functions = 0;
-      if (head == NULL) 
-        head = tail;
       Dwarf_Die die = (unit_type == DW_UT_skeleton ? subdie : cudie);
-      FnNode *fnhead = calloc(1, sizeof(FnNode));
-      _walk_tree(&die, &n_functions, fnhead);
-      tail->functions = fnhead->next;
-      tail->n_functions = n_functions;
-      free(fnhead);
+      file_name = _get_cu_source_file(&cudie);
+      _walk_tree(t, &die, file_name);
   }
-  return head; 
+  return t; 
 }

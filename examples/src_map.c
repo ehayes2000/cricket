@@ -108,6 +108,12 @@ FileNode* map_functions(const char* elf_file) {
       tail->n_functions = n_functions;
       free(fnhead);
   }
+  
+  FnNode* n = head->functions;
+  printf(":)");
+  for (int i = 0; i < head->n_functions; i ++, n=n->next) { 
+    printf("%s %0lx, %0lx\n", n->fn.name, n->fn.start, n->fn.end);
+  }
   return head; 
 }
 

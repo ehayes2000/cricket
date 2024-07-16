@@ -107,7 +107,6 @@ void get_stop_syscall(pid_t pid){
 void parent_process(pid_t child) { 
   config_ptrace(child);
   int status;
-  struct ptrace_syscall_info info; 
   while (1) { 
     waitpid(child, &status, 0);
     // wait(&status);
