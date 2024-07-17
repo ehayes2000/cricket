@@ -54,6 +54,12 @@ void config_ptrace(pid_t pid) {
     printf("child exited\n");
     exit(1);
   }
+  err = ptrace(PTRACE_ATTACH, pid, NULL, NULL);
+  if (err == -1){ 
+    fprintf(stderr, "ptrace failed %s\n", strerror(errno));
+    exit(err);
+  }
+  
   err = ptrace(PTRACE_SETOPTIONS, pid, NULL, PTRACE_O_EXITKILL | PTRACE_O_TRACESYSGOOD);
   if (err == -1){ 
     fprintf(stderr, "ptrace failed %s\n", strerror(errno));

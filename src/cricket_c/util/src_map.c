@@ -31,7 +31,6 @@ Dwarf_Word _get_die_line_number(Dwarf_Die *die) {
             return line_number;
         }
     }
-
     return 0;  // Return 0 if line number not found
 }
 
@@ -56,7 +55,8 @@ void _map_dwarf_fn(InstnTable* t, const char* source_file, Dwarf_Die *dwarf_die)
     fprintf(stderr, "no high %s\n", strerror(errno));
     exit(errno);
   }
-  table_insert_info(t, i, pc); // highpc
+  // highpc appears to be exclusive :)
+  table_insert_info(t, i, pc - 4); // highpc
 }
 
 void _walk_tree(InstnTable *t, Dwarf_Die *dwarf_die, const char* src_file){ 

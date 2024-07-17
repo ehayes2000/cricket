@@ -22,13 +22,13 @@ typedef struct SourceInfo {
     Function *function;
   } source;
   SourceKind kind;
+  instruction word; // data replaced
 } SourceInfo;
 
 typedef struct InstnNode InstnNode;
 
 struct InstnNode { 
   size_t instn; // offset
-  instruction word; // data replaced
   SourceInfo info;
   InstnNode *next;
 }; 

@@ -1,0 +1,19 @@
+services:
+  ubuntu-ptrace:
+    image: ubuntu:latest
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    
+    # Uncomment the following lines if you need to adjust the ptrace_scope
+    # privileged: true
+    # command: >
+    #   bash -c "echo 0 > /proc/sys/kernel/yama/ptrace_scope && sleep infinity"
+volumes:
+  workspace:

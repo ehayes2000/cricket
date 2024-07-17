@@ -8,6 +8,7 @@ InstnTable* table_new(){
   t->_head->info.kind = SENTINAL;
   return t;
 }
+
 SourceInfo table_get_info(const InstnTable *t, size_t instn){
   for (InstnNode* i = t->_head; i != NULL; i = i->next){
     if (i->instn == instn)

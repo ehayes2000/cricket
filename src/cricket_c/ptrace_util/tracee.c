@@ -3,17 +3,20 @@
 #include <sys/uio.h>
 #include <sys/resource.h>
 #include <linux/ptrace.h>
-#include <sys/ptrace.h>
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+#include <time.h>
 #include "tracee.h"
 
 long enable_breakpoint(pid_t child, size_t addr){
   //ptrace(enum op, pid_t, *addr, *data)
+  printf("brk at %p\n", addr);
   long instn = ptrace(PTRACE_PEEKTEXT, child, (void*)addr, NULL);
   // long brk_instn = (instn & ~0x) | 0xCC; // TODO different
-  ptrace(PTRACE_POKETEXT, child, (void*)addr, (void*)BREAKPOINT);
+  // uint32_t breakpoint_instruction = 0xD4200000;
+  uint32_t breakpoint_instruction = 0x00802491;
+  ptrace(PTRACE_POKETEXT, child, (void*)addr, (void*)breakpoint_instruction);
   return instn;
 }
 
@@ -23,6 +26,7 @@ void disable_breakpoint(pid_t child, size_t addr, long original){
 
 size_t get_process_base_address(pid_t pid) {
     char filename[32];
+    printf("pid %d\n", pid);
     sprintf(filename, "/proc/%d/maps", pid);
     
     FILE* fp = fopen(filename, "r");
@@ -48,11 +52,9 @@ unsigned long long get_pc(pid_t pid) {
   return regs.pc;
 }
 
-struct rusage get_cpu_time(pid_t pid){
-  struct rusage usage;
-  if (ptrace(PTRACE_GETRUSAGE, pid, NULL, &usage) == -1){ 
-    sprintf(stderr, "unable to time pid %s\n", strerror(errno));
+void get_cpu_time(struct rusage *usage){
+  if (getrusage(RUSAGE_CHILDREN, usage) == -1){
+    fprintf(stderr, "error collecting usage %s\n", strerror(errno));
     exit(errno);
   }
-  return usage;
 }

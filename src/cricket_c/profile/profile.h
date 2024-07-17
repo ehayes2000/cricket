@@ -6,5 +6,6 @@
 #include "../util/src_map.h"
 
 void profile_functions(char*);
+void peek();
 
 #endif
