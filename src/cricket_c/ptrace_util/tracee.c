@@ -9,7 +9,7 @@
 #include <time.h>
 #include "tracee.h"
 
-long enable_breakpoint(pid_t child, size_t addr){
+instruction enable_breakpoint(pid_t child, size_t addr){
   //ptrace(enum op, pid_t, *addr, *data)
   printf("brk at %p\n", addr);
   long instn = ptrace(PTRACE_PEEKTEXT, child, (void*)addr, NULL);

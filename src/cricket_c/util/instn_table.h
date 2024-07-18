@@ -39,9 +39,14 @@ typedef struct InstnTable {
 } InstnTable;
 
 InstnTable* table_new();
+// get the first occurance of a function by name
+InstnNode* table_get_fn(const InstnTable*, const char*); 
+// get source info from a pc (size_t)
 SourceInfo table_get_info(const InstnTable*, size_t);
+// insert source info referenced by line number
 void table_insert_info(InstnTable*, SourceInfo, size_t);
 bool table_delete_instn(InstnTable*, size_t);
+// return the first non-sentinal node 
 const InstnNode* table_iterate(InstnTable*);
 
 #endif

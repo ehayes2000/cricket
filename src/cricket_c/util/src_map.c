@@ -47,12 +47,14 @@ void _map_dwarf_fn(InstnTable* t, const char* source_file, Dwarf_Die *dwarf_die)
 
   size_t pc;
   if (dwarf_lowpc(dwarf_die, &pc) == -1){ // cowabunga
-    fprintf(stderr, "no lowpc %s\n", strerror(errno));
+    fprintf(stderr, "%s no lowpc %s\n", fn->name, strerror(errno));
+    return;
     exit(errno);
   }
   table_insert_info(t, i, pc); // lowpc
   if (dwarf_highpc(dwarf_die, &pc) == -1){ // cowabunga
     fprintf(stderr, "no high %s\n", strerror(errno));
+    return;
     exit(errno);
   }
   // highpc appears to be exclusive :)
@@ -98,7 +100,7 @@ InstnTable* map_functions(const char* elf_file) {
   }
   Dwarf *dbg = dwarf_begin(fd, DWARF_C_READ);
   if (dbg == NULL){
-    fprintf(stderr, "could not parse DWARF: %s\n", strerror(errno));
+    perror("could not parse DWARF");
     exit(errno);
   }
   Dwarf_CU *cu = NULL;

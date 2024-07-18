@@ -36,7 +36,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${LIBDW_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBDW_LIBRARIES})
 
 # Add compiler warnings
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -g)
 
 # Install the executable
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)

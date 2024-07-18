@@ -23,6 +23,12 @@
     "stdio.h": "c",
     "child.h": "c",
     "stdlib.h": "c",
-    "time_functions.h": "c"
+    "time_functions.h": "c",
+    "errno.h": "c",
+    "features.h": "c",
+    "signal.h": "c",
+    "unistd.h": "c",
+    "instn_table.h": "c",
+    "src_map.h": "c"
   }
 }

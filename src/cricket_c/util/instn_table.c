@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <string.h>
 #include "instn_table.h"
 
 InstnTable* table_new(){
@@ -7,6 +8,15 @@ InstnTable* table_new(){
   t->_tail = t->_head;
   t->_head->info.kind = SENTINAL;
   return t;
+}
+
+InstnNode* table_get_fn(const InstnTable* t, const char* fn_name){ 
+  for (InstnNode *i = table_iterate(t); i != NULL; i = i->next){
+    if (strcmp(i->info.source.function->name, fn_name) == 0){
+      return i;
+    }
+  }
+  return NULL;
 }
 
 SourceInfo table_get_info(const InstnTable *t, size_t instn){

@@ -6,5 +6,6 @@
 #include "instn_table.h"
 
 InstnTable* map_functions(const char* elf_file);
+void offset_validator();
 
 #endif
