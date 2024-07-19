@@ -118,7 +118,8 @@
 #include "util/src_map.h"
 
 int main() { 
-  peek();
+  breakpoint();
+  // peek();
   // char* program = "examples/say_hi";
   // profile_functions(program);
   // offset_validator();

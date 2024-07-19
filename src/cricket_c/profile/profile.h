@@ -7,5 +7,6 @@
 
 void profile_functions(char*);
 void peek();
+void breakpoint();
 
 #endif

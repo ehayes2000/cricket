@@ -61,6 +61,8 @@ void peek() {
         printf("fn name %s\n", fn->info.source.function->name);
         printf("peek offset %p\n", (void*)fn->instn);
         printf("peek address %p\n", (void*)(peek_addr));
+        // ptrace(PTRACE_POKETEXT, child_pid, (void*)peek_addr, 0xffffdfff);
+        
         long peeked = ptrace(PTRACE_PEEKTEXT, child_pid, (void*)peek_addr, NULL);
         if (peeked == -1 && errno != 0){
             perror("peek failed");

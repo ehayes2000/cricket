@@ -26,7 +26,6 @@ void disable_breakpoint(pid_t child, size_t addr, long original){
 
 size_t get_process_base_address(pid_t pid) {
     char filename[32];
-    printf("pid %d\n", pid);
     sprintf(filename, "/proc/%d/maps", pid);
     
     FILE* fp = fopen(filename, "r");

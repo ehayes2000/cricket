@@ -29,6 +29,7 @@
     "signal.h": "c",
     "unistd.h": "c",
     "instn_table.h": "c",
-    "src_map.h": "c"
+    "src_map.h": "c",
+    "profile.h": "c"
   }
 }
