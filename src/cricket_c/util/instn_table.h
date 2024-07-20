@@ -11,6 +11,7 @@ typedef struct {
   char* src_file;
   unsigned long line;
   instruction instn; // data replaced
+  bool is_exit;
 } SourceInfo;
 
 typedef struct InstnNode InstnNode;

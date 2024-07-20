@@ -49,20 +49,28 @@ Dwarf_Word _get_die_line_number(Dwarf_Die *die) {
 }
 
 void _map_dwarf_fn(InstnTable* t, const char* source_file, Dwarf_Die *dwarf_die){
-  SourceInfo i = {
-    .fn_name = dwarf_diename(dwarf_die),
-    .src_file = source_file,
-    .line = _get_die_line_number(dwarf_die),
-  };
 
   size_t pc;
   if (dwarf_lowpc(dwarf_die, &pc) == -1){ // cowabunga
     return;
   }
+  SourceInfo i = {
+    .fn_name = dwarf_diename(dwarf_die),
+    .src_file = source_file,
+    .line = _get_die_line_number(dwarf_die),
+    .is_exit = false,
+  };
+
   table_insert_offset(t, i, pc); // lowpc
   if (dwarf_highpc(dwarf_die, &pc) == -1){ // cowabunga
     return;
   }
+  SourceInfo i = {
+    .fn_name = dwarf_diename(dwarf_die),
+    .src_file = source_file,
+    .line = _get_die_line_number(dwarf_die),
+    .is_exit = true,
+  };
   // highpc appears to be exclusive :)
   table_insert_offset(t, i, pc - 4); // highpc
 }
