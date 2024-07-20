@@ -30,6 +30,8 @@
     "unistd.h": "c",
     "instn_table.h": "c",
     "src_map.h": "c",
-    "profile.h": "c"
+    "profile.h": "c",
+    "tracee.h": "c",
+    "break_table.h": "c"
   }
 }

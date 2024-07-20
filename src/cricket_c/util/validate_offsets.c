@@ -21,11 +21,11 @@ void offset_validator(){
   InstnTable *offsets = map_functions(this_bin); 
   size_t child_offset;
   for (InstnNode* i = table_iterate(offsets); i != NULL; i = i->next){
-    if (strcmp(i->info.source.function->name, "validate_child_process") == 0){
+    if (strcmp(i->source.fn_name, "validate_child_process") == 0){
       printf("found child offset\n");
-      printf("fn: %s\n", i->info.source.function->name);
-      printf("offset: %p\n", (void*)i->instn);
-      child_offset = i->instn;
+      printf("fn: %s\n", i->source.fn_name);
+      printf("offset: %p\n", (void*)i->offset);
+      child_offset = i->offset;
       break;
     }
   }

@@ -16,6 +16,20 @@ Node* map_functions(char* elfFile );
 #include <dwarf.h>
 #include "src_map.h"
 
+int read_word_at_offset(int fd, off_t offset, uint32_t *word) {
+    if (lseek(fd, offset, SEEK_SET) == -1) {
+        return -1;  
+    }
+    ssize_t bytes_read = read(fd, word, sizeof(*word));
+    if (bytes_read == -1) {
+        return -1;  
+    }
+    if (bytes_read < sizeof(*word)) {
+        return -2;  
+    }
+    return 0;  
+}
+
 bool _die_is_func(Dwarf_Die *dwarf_die){
   if (dwarf_die == NULL)
     return false;
@@ -35,26 +49,22 @@ Dwarf_Word _get_die_line_number(Dwarf_Die *die) {
 }
 
 void _map_dwarf_fn(InstnTable* t, const char* source_file, Dwarf_Die *dwarf_die){
-  Function *fn = malloc(sizeof(Function));
-  fn->name = dwarf_diename(dwarf_die);
-  fn->src_file = source_file;
-  fn->line = _get_die_line_number(dwarf_die);
-  SourceInfo i = { .kind = FUNCTION, 
-                   .source = {
-                      .function = fn
-                    }
-                  };
+  SourceInfo i = {
+    .fn_name = dwarf_diename(dwarf_die),
+    .src_file = source_file,
+    .line = _get_die_line_number(dwarf_die),
+  };
 
   size_t pc;
   if (dwarf_lowpc(dwarf_die, &pc) == -1){ // cowabunga
     return;
   }
-  table_insert_info(t, i, pc); // lowpc
+  table_insert_offset(t, i, pc); // lowpc
   if (dwarf_highpc(dwarf_die, &pc) == -1){ // cowabunga
     return;
   }
   // highpc appears to be exclusive :)
-  table_insert_info(t, i, pc - 4); // highpc
+  table_insert_offset(t, i, pc - 4); // highpc
 }
 
 void _walk_tree(InstnTable *t, Dwarf_Die *dwarf_die, const char* src_file){ 
@@ -109,6 +119,11 @@ InstnTable* map_functions(const char* elf_file) {
       Dwarf_Die die = (unit_type == DW_UT_skeleton ? subdie : cudie);
       file_name = _get_cu_source_file(&cudie);
       _walk_tree(t, &die, file_name);
+  }
+  for (InstnNode* i = t->_head->next; i != NULL; i = i->next){
+    if (read_word_at_offset(fd, i->offset, &i->source.instn) < 0){
+      printf("failed to read instruction for %s [0x%lx]", i->source.fn_name, i->offset); 
+    }
   }
   return t; 
 }
