@@ -1,10 +1,5 @@
-#include "util/src_map.h"
+#include "profiler/profiler.h"
 
-int main() { 
-  InstnTable* src_map = map_functions("bin/cricket");
-  // breakpoint();
-  // peek();
-  // char* program = "examples/say_hi";
-  // profile_functions(program);
-  // offset_validator();
+int main(int argc, char* argv[]) { 
+  time_functions(argv[1]);
 }

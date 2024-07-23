@@ -20,7 +20,7 @@ made by a child
 void config_ptrace(pid_t);
 void parent_process(pid_t);
 void child_process(char* program[]);
-struct timeval call_time;
+struct struct timeval call_time;
 int timeset = 0;
 char* call;
 
@@ -84,7 +84,7 @@ void get_stop_syscall(pid_t pid){
   }
   int syscall = -1;
   struct rusage usage;
-  struct timeval difference;
+  struct struct timeval difference;
   if (info.op == PTRACE_SYSCALL_INFO_ENTRY) { 
     timeset = 1;
     call = seccomp_syscall_resolve_num_arch(info.arch, info.entry.nr);

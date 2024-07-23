@@ -297,7 +297,7 @@ Contents of the .debug_info section:
     <22d>   DW_AT_decl_column : 23
     <22e>   DW_AT_type        : <0x42>
  <1><232>: Abbrev Number: 14 (DW_TAG_structure_type)
-    <233>   DW_AT_name        : (indirect string, offset: 0x248): timeval
+    <233>   DW_AT_name        : (indirect string, offset: 0x248): struct timeval
     <237>   DW_AT_byte_size   : 16
     <238>   DW_AT_decl_file   : 7
     <239>   DW_AT_decl_line   : 8

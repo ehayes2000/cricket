@@ -32,6 +32,12 @@
     "src_map.h": "c",
     "profile.h": "c",
     "tracee.h": "c",
-    "break_table.h": "c"
+    "break_table.h": "c",
+    "interval_stack.h": "c",
+    "string.h": "c",
+    "time.h": "c",
+    "libdw.h": "c",
+    "resource.h": "c",
+    "time_stack.h": "c"
   }
 }
