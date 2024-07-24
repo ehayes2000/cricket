@@ -38,6 +38,8 @@
     "time.h": "c",
     "libdw.h": "c",
     "resource.h": "c",
-    "time_stack.h": "c"
+    "time_stack.h": "c",
+    "profiler.h": "c",
+    "profiler_cli.h": "c"
   }
 }

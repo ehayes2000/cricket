@@ -1,6 +1,7 @@
 #include "time_stack.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 TimeStack* newTimeStack(){
   TimeStack* s = malloc(sizeof(TimeStack));
@@ -15,7 +16,7 @@ TimeStack* newTimeStack(){
 void pushTimeStack(TimeStack* s, Instant i){
   if (s->size >= s->cap){
     s->cap *= 2;
-    struct timeval* new_buf = malloc(s->cap * sizeof(Instant));
+    Instant* new_buf = malloc(s->cap * sizeof(Instant));
     memcpy(new_buf, s->buf, s->size * sizeof(Instant));
     free(s->buf);
     s->buf = new_buf;

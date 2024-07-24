@@ -1,5 +1,6 @@
-#include "profiler/profiler.h"
+#include "profiler/profiler_cli.h"
 
 int main(int argc, char* argv[]) { 
-  time_functions(argv[1]);
+  profile_functions_csv(argv[1]);
+  // profile_functions_csv(argv[1]);
 }

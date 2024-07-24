@@ -2,6 +2,7 @@
 
 
 bool srcMapGetInfo(const SrcMap* t, const size_t offset, SourceInfo* info){
+
   for (InstnNode* i = t->_head->next; i != NULL; i = i->next){
     if (i->offset == offset){
       *info = i->source;

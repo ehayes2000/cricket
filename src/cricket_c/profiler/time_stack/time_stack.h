@@ -13,7 +13,7 @@ typedef struct {
 typedef struct {
   unsigned int cap;
   unsigned int size;
-  Instant *buf
+  Instant *buf;
 } TimeStack;
 
 TimeStack* newTimeStack();
