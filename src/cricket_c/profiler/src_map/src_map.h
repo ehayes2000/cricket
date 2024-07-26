@@ -11,6 +11,7 @@ typedef struct {
   unsigned long line;
   long instn; // data replaced
   bool is_exit;
+  int call_count;
 } SourceInfo;
 
 typedef struct InstnNode InstnNode;

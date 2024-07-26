@@ -45,6 +45,7 @@ void map_dwarf_fn(SrcMap* t, const char* source_file, Dwarf_Die *dwarf_die){
     .src_file = source_file,
     .line = get_die_line_number(dwarf_die),
     .is_exit = false,
+    .call_count = 0,
   };
   if (strncmp(i.fn_name, "main", 4) == 0){
     return;
