@@ -1,0 +1,376 @@
+--------------------------------------------------------------------------------
+Profile data file 'callgrind.out.185764' (creator: callgrind-3.16.1)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 40916
+Trigger: Program termination
+Profiled target:  ./targets/fib (PID 185764, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir               
+--------------------------------------------------------------------------------
+163,960 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir               file:function
+--------------------------------------------------------------------------------
+57,376 (34.99%)  ./elf/dl-addr.c:_dl_addr'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+18,901 (11.53%)  ./elf/dl-lookup.c:do_lookup_x [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 9,482 ( 5.78%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 9,423 ( 5.75%)  ./elf/dl-lookup.c:_dl_lookup_symbol_x'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 9,088 ( 5.54%)  ./elf/dl-tunables.c:__GI___tunables_init'2
+ 5,843 ( 3.56%)  ./elf/dl-lookup.c:do_lookup_x'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 5,425 ( 3.31%)  ./elf/do-rel.h:_dl_relocate_object'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 4,580 ( 2.79%)  ./elf/dl-lookup.c:check_match [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 4,390 ( 2.68%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 3,023 ( 1.84%)  ./elf/dl-tunables.h:__GI___tunables_init'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 2,610 ( 1.59%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+ 2,244 ( 1.37%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_lookup_symbol_x'2
+ 1,521 ( 0.93%)  ./elf/dl-lookup.c:_dl_lookup_symbol_x [/lib/aarch64-linux-gnu/ld-2.31.so]
+   841 ( 0.51%)  ./elf/dl-version.c:_dl_check_map_versions'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   686 ( 0.42%)  ./elf/dl-cache.c:_dl_cache_libcmp [/lib/aarch64-linux-gnu/ld-2.31.so]
+   643 ( 0.39%)  ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   612 ( 0.37%)  ./elf/rtld.c:dl_main'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   602 ( 0.37%)  ./elf/dl-runtime.c:_dl_fixup [/lib/aarch64-linux-gnu/ld-2.31.so]
+   560 ( 0.34%)  ./elf/dl-load.c:_dl_map_object_from_fd'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   556 ( 0.34%)  ./elf/dl-object.c:_dl_new_object'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   546 ( 0.33%)  ./elf/dl-minimal.c:malloc [/lib/aarch64-linux-gnu/ld-2.31.so]
+   524 ( 0.32%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:memcpy [/lib/aarch64-linux-gnu/ld-2.31.so]
+   523 ( 0.32%)  ./gmon/gmon.c:write_gmon'2
+   519 ( 0.32%)  ./elf/dl-load.c:open_path'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   518 ( 0.32%)  ./elf/dl-load.c:open_verify.constprop.0 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   516 ( 0.31%)  ./malloc/malloc.c:ptmalloc_init.part.0'2
+   514 ( 0.31%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_start'2
+   504 ( 0.31%)  ./elf/dl-hwcaps.c:_dl_important_hwcaps'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   498 ( 0.30%)  ./elf/dl-deps.c:_dl_map_object_deps'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   464 ( 0.28%)  ./elf/get-dynamic-info.h:_dl_map_object_from_fd'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   424 ( 0.26%)  ./string/../sysdeps/aarch64/multiarch/../strlen.S:strlen [/lib/aarch64-linux-gnu/ld-2.31.so]
+   414 ( 0.25%)  ./string/../sysdeps/aarch64/memset.S:memset [/lib/aarch64-linux-gnu/ld-2.31.so]
+   356 ( 0.22%)  ./stdio-common/vfprintf-internal.c:__vfprintf_internal'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   354 ( 0.22%)  ./libio/fileops.c:_IO_file_xsputn@@GLIBC_2.17'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   353 ( 0.22%)  ./elf/dl-reloc.c:_dl_relocate_object'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   338 ( 0.21%)  ./elf/dl-runtime.c:_dl_lookup_symbol_x
+   315 ( 0.19%)  ./elf/dl-tunables.c:__GI___tunables_init [/lib/aarch64-linux-gnu/ld-2.31.so]
+   309 ( 0.19%)  ./elf/../elf/dl-sysdep.c:_dl_sysdep_start'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   305 ( 0.19%)  ./libio/fileops.c:_IO_file_overflow@@GLIBC_2.17 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   298 ( 0.18%)  ./elf/dl-misc.c:_dl_name_match_p [/lib/aarch64-linux-gnu/ld-2.31.so]
+   273 ( 0.17%)  ./elf/../sysdeps/generic/ldsodefs.h:do_lookup_x'2
+   273 ( 0.17%)  ./elf/do-rel.h:_dl_start'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   267 ( 0.16%)  ./elf/dl-deps.c:_dl_catch_exception
+   262 ( 0.16%)  ./elf/dl-load.c:_dl_map_object [/lib/aarch64-linux-gnu/ld-2.31.so]
+   262 ( 0.16%)  ./string/strcspn.c:strcspn'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   261 ( 0.16%)  ./elf/../sysdeps/generic/ldsodefs.h:_dl_relocate_object'2
+   261 ( 0.16%)  ./string/../sysdeps/aarch64/strchr.S:index [/lib/aarch64-linux-gnu/ld-2.31.so]
+   260 ( 0.16%)  ???:_dl_start
+   258 ( 0.16%)  ./malloc/malloc.c:_int_malloc [/lib/aarch64-linux-gnu/libc-2.31.so]
+   251 ( 0.15%)  ./io/../sysdeps/unix/sysv/linux/open64_nocancel.c:__open_nocancel [/lib/aarch64-linux-gnu/ld-2.31.so]
+   250 ( 0.15%)  ./elf/dl-tunables.c:__tunable_get_val [/lib/aarch64-linux-gnu/ld-2.31.so]
+   222 ( 0.14%)  ./elf/dl-cache.c:_dl_load_cache_lookup'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   222 ( 0.14%)  ./elf/dl-load.c:_dl_init_paths'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   219 ( 0.13%)  ./elf/dl-load.c:open_verify.constprop.0'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   213 ( 0.13%)  ./elf/get-dynamic-info.h:dl_main'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   208 ( 0.13%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object [/lib/aarch64-linux-gnu/ld-2.31.so]
+   207 ( 0.13%)  targets/fib.c:_mcount@@GLIBC_2.18'2
+   205 ( 0.13%)  ./elf/dl-environ.c:_dl_next_ld_env_entry [/lib/aarch64-linux-gnu/ld-2.31.so]
+   201 ( 0.12%)  ???:write_gmon'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   196 ( 0.12%)  ./stdlib/getenv.c:getenv [/lib/aarch64-linux-gnu/libc-2.31.so]
+   194 ( 0.12%)  ./malloc/malloc.c:_int_malloc'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   187 ( 0.11%)  ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_runtime_resolve'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   183 ( 0.11%)  ./elf/dl-minimal.c:strsep'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   182 ( 0.11%)  ./elf/./dl-map-segments.h:_dl_map_object_from_fd'2
+   180 ( 0.11%)  ./elf/dl-sort-maps.c:_dl_sort_maps [/lib/aarch64-linux-gnu/ld-2.31.so]
+   174 ( 0.11%)  ./elf/rtld.c:dl_main [/lib/aarch64-linux-gnu/ld-2.31.so]
+   172 ( 0.10%)  ./stdio-common/vfprintf-internal.c:_IO_file_xsputn@@GLIBC_2.17'2
+   169 ( 0.10%)  ./elf/get-dynamic-info.h:_dl_start'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   164 ( 0.10%)  ???:call_init.part.0 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   162 ( 0.10%)  ./elf/dl-sort-maps.c:_dl_sort_maps'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   157 ( 0.10%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:memcpy'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   156 ( 0.10%)  ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_fixup
+   154 ( 0.09%)  ./elf/dl-tunables.c:__tunable_get_val'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   151 ( 0.09%)  ./string/../sysdeps/aarch64/memset.S:calloc
+   150 ( 0.09%)  ./stdio-common/vfprintf-internal.c:__vfprintf_internal [/lib/aarch64-linux-gnu/libc-2.31.so]
+   148 ( 0.09%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memcpy [/lib/aarch64-linux-gnu/libc-2.31.so]
+   148 ( 0.09%)  ./string/../sysdeps/aarch64/strchrnul.S:strchrnul [/lib/aarch64-linux-gnu/libc-2.31.so]
+   145 ( 0.09%)  ./elf/dl-version.c:_dl_check_map_versions [/lib/aarch64-linux-gnu/ld-2.31.so]
+   142 ( 0.09%)  ./stdio-common/vfprintf-internal.c:_IO_file_xsputn@@GLIBC_2.17
+   140 ( 0.09%)  ./malloc/arena.c:ptmalloc_init.part.0'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   134 ( 0.08%)  ./elf/dl-load.c:open_path [/lib/aarch64-linux-gnu/ld-2.31.so]
+   131 ( 0.08%)  ./elf/dl-load.c:fillin_rpath.isra.0'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   130 ( 0.08%)  ./signal/../sysdeps/unix/sysv/linux/sigaction.c:__libc_sigaction [/lib/aarch64-linux-gnu/libc-2.31.so]
+   129 ( 0.08%)  ./elf/dl-load.c:_dl_map_object_from_fd [/lib/aarch64-linux-gnu/ld-2.31.so]
+   128 ( 0.08%)  targets/fib.c:fib_L'2 [/workspaces/Cricket/targets/fib]
+   125 ( 0.08%)  ./elf/../elf/dl-sysdep.c:_dl_sysdep_start [/lib/aarch64-linux-gnu/ld-2.31.so]
+   121 ( 0.07%)  ./elf/dl-hwcaps.c:_dl_important_hwcaps [/lib/aarch64-linux-gnu/ld-2.31.so]
+   121 ( 0.07%)  ./elf/dl-object.c:_dl_add_to_namespace_list [/lib/aarch64-linux-gnu/ld-2.31.so]
+   116 ( 0.07%)  ./stdlib/cxa_finalize.c:__cxa_finalize [/lib/aarch64-linux-gnu/libc-2.31.so]
+   115 ( 0.07%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_lookup_symbol_x
+   115 ( 0.07%)  ./libio/genops.c:_IO_default_xsputn'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+   114 ( 0.07%)  ./elf/dl-deps.c:_dl_map_object_deps [/lib/aarch64-linux-gnu/ld-2.31.so]
+   108 ( 0.07%)  ./gmon/../sysdeps/posix/profil.c:profil [/lib/aarch64-linux-gnu/libc-2.31.so]
+   107 ( 0.07%)  ./elf/dl-fini.c:_dl_fini'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+   104 ( 0.06%)  ./elf/dl-load.c:_dl_new_object'2
+    96 ( 0.06%)  ./elf/dl-minimal.c:calloc [/lib/aarch64-linux-gnu/ld-2.31.so]
+    96 ( 0.06%)  ???:__aarch64_cas4_acq [/lib/aarch64-linux-gnu/libc-2.31.so]
+    96 ( 0.06%)  ???:__aarch64_cas8_acq [/lib/aarch64-linux-gnu/libc-2.31.so]
+    96 ( 0.06%)  ???:__aarch64_swp4_rel [/lib/aarch64-linux-gnu/libc-2.31.so]
+    93 ( 0.06%)  ./malloc/malloc.c:_int_free [/lib/aarch64-linux-gnu/libc-2.31.so]
+    92 ( 0.06%)  ./elf/dl-reloc.c:_dl_protect_relro [/lib/aarch64-linux-gnu/ld-2.31.so]
+    92 ( 0.06%)  ./elf/dl-tunables.h:__GI___tunables_init [/lib/aarch64-linux-gnu/ld-2.31.so]
+    92 ( 0.06%)  ./io/../sysdeps/unix/sysv/linux/generic/xstat.c:_xstat [/lib/aarch64-linux-gnu/ld-2.31.so]
+    89 ( 0.05%)  ./libio/genops.c:_IO_flush_all_lockp'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    88 ( 0.05%)  ./elf/dl-lookup.c:_dl_setup_hash [/lib/aarch64-linux-gnu/ld-2.31.so]
+    86 ( 0.05%)  ./libio/fileops.c:new_do_write [/lib/aarch64-linux-gnu/libc-2.31.so]
+    81 ( 0.05%)  ./setjmp/../sysdeps/aarch64/setjmp.S:__sigsetjmp [/lib/aarch64-linux-gnu/ld-2.31.so]
+    80 ( 0.05%)  ./stdlib/cxa_atexit.c:__new_exitfn [/lib/aarch64-linux-gnu/libc-2.31.so]
+    73 ( 0.04%)  ./malloc/malloc.c:sysmalloc'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    72 ( 0.04%)  ./stdio-common/_itoa.c:_itoa_word [/lib/aarch64-linux-gnu/libc-2.31.so]
+    71 ( 0.04%)  ./libio/fileops.c:_IO_file_xsputn@@GLIBC_2.17 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    70 ( 0.04%)  ./misc/../sysdeps/unix/sysv/linux/mmap64.c:mmap [/lib/aarch64-linux-gnu/ld-2.31.so]
+    69 ( 0.04%)  ./elf/../sysdeps/unix/sysv/linux/dl-sysdep.c:_dl_discover_osversion [/lib/aarch64-linux-gnu/ld-2.31.so]
+    69 ( 0.04%)  ./elf/./dl-map-segments.h:_dl_map_object_from_fd [/lib/aarch64-linux-gnu/ld-2.31.so]
+    69 ( 0.04%)  ./elf/dl-fini.c:0x00000000000005e8
+    69 ( 0.04%)  ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    68 ( 0.04%)  targets/fib.c:fib_R [/workspaces/Cricket/targets/fib]
+    66 ( 0.04%)  targets/fib.c:fib_R'2 [/workspaces/Cricket/targets/fib]
+    64 ( 0.04%)  ./elf/do-rel.h:_dl_relocate_object [/lib/aarch64-linux-gnu/ld-2.31.so]
+    64 ( 0.04%)  ./libio/genops.c:_IO_cleanup'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    64 ( 0.04%)  ???:monstartup [/lib/aarch64-linux-gnu/libc-2.31.so]
+    61 ( 0.04%)  ./elf/get-dynamic-info.h:_dl_start [/lib/aarch64-linux-gnu/ld-2.31.so]
+    61 ( 0.04%)  ./elf/rtld.c:init_tls [/lib/aarch64-linux-gnu/ld-2.31.so]
+    61 ( 0.04%)  ./malloc/malloc.c:sysmalloc [/lib/aarch64-linux-gnu/libc-2.31.so]
+    60 ( 0.04%)  ./elf/dl-load.c:fillin_rpath.isra.0 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    57 ( 0.03%)  ./elf/dl-load.c:_dl_map_object'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    57 ( 0.03%)  ./libio/genops.c:_IO_file_setbuf@@GLIBC_2.17
+    56 ( 0.03%)  ./elf/get-dynamic-info.h:dl_main [/lib/aarch64-linux-gnu/ld-2.31.so]
+    56 ( 0.03%)  ./libio/fileops.c:_IO_file_write@@GLIBC_2.17 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    55 ( 0.03%)  ./elf/dl-tls.c:_dl_allocate_tls_init'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    55 ( 0.03%)  ./string/../sysdeps/aarch64/memset.S:tcache_init.part.0
+    54 ( 0.03%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:strdup
+    54 ( 0.03%)  ./string/strdup.c:strdup [/lib/aarch64-linux-gnu/ld-2.31.so]
+    53 ( 0.03%)  ./elf/dl-error-skeleton.c:_dl_catch_exception [/lib/aarch64-linux-gnu/ld-2.31.so]
+    52 ( 0.03%)  ./elf/dl-reloc.c:_dl_relocate_object [/lib/aarch64-linux-gnu/ld-2.31.so]
+    51 ( 0.03%)  ./elf/dl-load.c:_dl_important_hwcaps
+    51 ( 0.03%)  ./stdlib/exit.c:_dl_fini
+    50 ( 0.03%)  ./elf/dl-iteratephdr.c:dl_iterate_phdr'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    48 ( 0.03%)  ./elf/rtld.c:_dl_map_object_deps
+    48 ( 0.03%)  ./elf/rtld.c:_dl_new_object
+    48 ( 0.03%)  ./elf/rtld.c:_dl_start_final [/lib/aarch64-linux-gnu/ld-2.31.so]
+    47 ( 0.03%)  ./elf/dl-open.c:_dl_find_dso_for_object [/lib/aarch64-linux-gnu/ld-2.31.so]
+    47 ( 0.03%)  ./elf/rtld.c:_dl_relocate_object'2
+    46 ( 0.03%)  ./elf/dl-addr.c:_dl_addr [/lib/aarch64-linux-gnu/libc-2.31.so]
+    46 ( 0.03%)  ./nptl/register-atfork.c:__unregister_atfork [/lib/aarch64-linux-gnu/libc-2.31.so]
+    44 ( 0.03%)  ./elf/dl-debug.c:_dl_debug_initialize [/lib/aarch64-linux-gnu/ld-2.31.so]
+    44 ( 0.03%)  ./elf/dl-load.c:_dl_dst_count [/lib/aarch64-linux-gnu/ld-2.31.so]
+    44 ( 0.03%)  ./elf/dl-tls.c:_dl_determine_tlsoffset'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    43 ( 0.03%)  ./elf/dl-fini.c:0x00000000000008a0
+    43 ( 0.03%)  ./malloc/malloc.c:malloc_hook_ini
+    43 ( 0.03%)  ./string/../sysdeps/aarch64/strrchr.S:rindex [/lib/aarch64-linux-gnu/libc-2.31.so]
+    42 ( 0.03%)  ./elf/get-dynamic-info.h:_dl_new_object'2
+    42 ( 0.03%)  ???:write_gmon [/lib/aarch64-linux-gnu/libc-2.31.so]
+    41 ( 0.03%)  ./stdlib/cxa_atexit.c:__internal_atexit'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    40 ( 0.02%)  ./io/../sysdeps/unix/sysv/linux/write.c:write [/lib/aarch64-linux-gnu/libc-2.31.so]
+    39 ( 0.02%)  ./stdlib/exit.c:__run_exit_handlers'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    39 ( 0.02%)  ./string/../sysdeps/aarch64/memset.S:memset'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    38 ( 0.02%)  ./stdio-common/printf.c:printf [/lib/aarch64-linux-gnu/libc-2.31.so]
+    38 ( 0.02%)  ./stdio-common/printf.c:printf'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    37 ( 0.02%)  ./elf/rtld.c:do_preload [/lib/aarch64-linux-gnu/ld-2.31.so]
+    37 ( 0.02%)  ./malloc/malloc.c:malloc [/lib/aarch64-linux-gnu/libc-2.31.so]
+    36 ( 0.02%)  ./io/../sysdeps/unix/sysv/linux/wordsize-64/fxstat.c:_fxstat [/lib/aarch64-linux-gnu/ld-2.31.so]
+    35 ( 0.02%)  ./csu/init-first.c:_init [/lib/aarch64-linux-gnu/libc-2.31.so]
+    35 ( 0.02%)  ./elf/dl-tls.c:_dl_tls_static_surplus_init [/lib/aarch64-linux-gnu/ld-2.31.so]
+    34 ( 0.02%)  ./csu/../csu/libc-start.c:__internal_atexit
+    34 ( 0.02%)  ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_runtime_resolve [/lib/aarch64-linux-gnu/ld-2.31.so]
+    34 ( 0.02%)  ./elf/../sysdeps/generic/ldsodefs.h:_dl_new_object'2
+    34 ( 0.02%)  ./libio/filedoalloc.c:_IO_file_doallocate [/lib/aarch64-linux-gnu/libc-2.31.so]
+    34 ( 0.02%)  ./misc/sbrk.c:sbrk [/lib/aarch64-linux-gnu/libc-2.31.so]
+    34 ( 0.02%)  ???:__gmon_start__ [/workspaces/Cricket/targets/fib]
+    33 ( 0.02%)  ./elf/./dl-load.h:_dl_map_object_from_fd'2
+    33 ( 0.02%)  ./elf/dl-minimal.c:free [/lib/aarch64-linux-gnu/ld-2.31.so]
+    33 ( 0.02%)  ./gmon/gmon.c:dl_iterate_phdr
+    33 ( 0.02%)  ./stdlib/exit.c:_int_free
+    32 ( 0.02%)  ./elf/../sysdeps/aarch64/dl-irel.h:_dl_relocate_object'2
+    32 ( 0.02%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_start
+    32 ( 0.02%)  ./elf/../sysdeps/posix/dl-fileid.h:_dl_map_object_from_fd
+    32 ( 0.02%)  ./elf/dl-deps.c:openaux [/lib/aarch64-linux-gnu/ld-2.31.so]
+    32 ( 0.02%)  ./elf/dl-tls.c:_dl_allocate_tls_init [/lib/aarch64-linux-gnu/ld-2.31.so]
+    32 ( 0.02%)  ./malloc/scratch_buffer_set_array_size.c:__libc_scratch_buffer_set_array_size [/lib/aarch64-linux-gnu/ld-2.31.so]
+    31 ( 0.02%)  ./elf/dl-object.c:malloc
+    31 ( 0.02%)  ./string/../sysdeps/aarch64/strnlen.S:strnlen [/lib/aarch64-linux-gnu/libc-2.31.so]
+    31 ( 0.02%)  ???:__libc_csu_init [/workspaces/Cricket/targets/fib]
+    30 ( 0.02%)  ./elf/dl-error-skeleton.c:_dl_catch_exception'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    30 ( 0.02%)  ./misc/../sysdeps/unix/syscall-template.S:mprotect [/lib/aarch64-linux-gnu/ld-2.31.so]
+    29 ( 0.02%)  ./elf/dl-cache.c:_dl_sysdep_read_whole_file
+    29 ( 0.02%)  ???:call_init.part.0'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    28 ( 0.02%)  ./elf/dl-fini.c:_dl_sort_maps
+    28 ( 0.02%)  ./elf/dl-load.c:expand_dynamic_string_token [/lib/aarch64-linux-gnu/ld-2.31.so]
+    28 ( 0.02%)  ./libio/genops.c:_IO_default_setbuf [/lib/aarch64-linux-gnu/libc-2.31.so]
+    28 ( 0.02%)  ???:_dl_init'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    27 ( 0.02%)  ./elf/dl-iteratephdr.c:dl_iterate_phdr [/lib/aarch64-linux-gnu/libc-2.31.so]
+    27 ( 0.02%)  ./libio/genops.c:_IO_flush_all_lockp [/lib/aarch64-linux-gnu/libc-2.31.so]
+    27 ( 0.02%)  ./string/strcspn.c:strcspn [/lib/aarch64-linux-gnu/ld-2.31.so]
+    27 ( 0.02%)  ???:init_have_lse_atomics [/lib/aarch64-linux-gnu/ld-2.31.so]
+    26 ( 0.02%)  ./elf/dl-misc.c:_dl_sysdep_read_whole_file [/lib/aarch64-linux-gnu/ld-2.31.so]
+    26 ( 0.02%)  targets/fib.c:fib_L [/workspaces/Cricket/targets/fib]
+    25 ( 0.02%)  ./elf/dl-object.c:_dl_new_object [/lib/aarch64-linux-gnu/ld-2.31.so]
+    25 ( 0.02%)  ./elf/dl-tls.c:_dl_allocate_tls_storage [/lib/aarch64-linux-gnu/ld-2.31.so]
+    25 ( 0.02%)  ./elf/rtld.c:_dl_allocate_tls_init
+    25 ( 0.02%)  ./libio/fileops.c:_IO_file_overflow@@GLIBC_2.17'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    25 ( 0.02%)  ./stdio-common/../libio/libioP.h:__vfprintf_internal'2
+    24 ( 0.01%)  ./elf/rtld.c:rtld_lock_default_lock_recursive [/lib/aarch64-linux-gnu/ld-2.31.so]
+    24 ( 0.01%)  ./libio/genops.c:_IO_default_xsputn [/lib/aarch64-linux-gnu/libc-2.31.so]
+    24 ( 0.01%)  ./libio/libioP.h:_IO_default_xsputn'2
+    24 ( 0.01%)  ./string/strncpy.c:strncpy [/lib/aarch64-linux-gnu/libc-2.31.so]
+    23 ( 0.01%)  ./elf/rtld.c:_dl_start'2 [/lib/aarch64-linux-gnu/ld-2.31.so]
+    23 ( 0.01%)  ./malloc/malloc.c:_int_free'2 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    22 ( 0.01%)  ./elf/rtld.c:handle_preload_list [/lib/aarch64-linux-gnu/ld-2.31.so]
+    22 ( 0.01%)  ./libio/fileops.c:_IO_do_write@@GLIBC_2.17 [/lib/aarch64-linux-gnu/libc-2.31.so]
+    22 ( 0.01%)  ./malloc/malloc.c:free [/lib/aarch64-linux-gnu/libc-2.31.so]
+    22 ( 0.01%)  ./misc/init-misc.c:__init_misc [/lib/aarch64-linux-gnu/libc-2.31.so]
+    22 ( 0.01%)  ???:0x00000000000005e8 [/usr/lib/aarch64-linux-gnu/valgrind/vgpreload_core-arm64-linux.so]
+    22 ( 0.01%)  ???:0x0000000000000780 [/workspaces/Cricket/targets/fib]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: targets/fib.c
+--------------------------------------------------------------------------------
+Ir           
+
+  .           
+  .           #include <stdio.h>
+  .           
+  .           
+  .           long unsigned int fib_L(int n);
+  .           long unsigned int fib_R(int n);
+  .           int R = 0;
+  .           int L = 0;
+104 ( 0.06%)  long unsigned int fib_L(int n){
+1,260 ( 0.77%)  => ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18 (1x)
+ 56 ( 0.03%)    L ++;
+ 24 ( 0.01%)    if (n == 0)
+  .               return 0;
+ 24 ( 0.01%)    if (n == 1)
+  6 ( 0.00%)      return 1;
+  9 ( 0.01%)  => targets/fib.c:fib_L'2 (3x)
+ 40 ( 0.02%)    return fib_L(n - 1) + fib_R(n - 2);
+851 ( 0.52%)  => targets/fib.c:fib_R (4x)
+ 83 ( 0.05%)  => targets/fib.c:fib_R'2 (1x)
+ 24 ( 0.01%)  }
+  .           
+ 91 ( 0.06%)  long unsigned int fib_R(int n){
+783 ( 0.48%)  => ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18'2 (4x)
+ 49 ( 0.03%)    R ++;
+ 21 ( 0.01%)    if (n == 0)
+  6 ( 0.00%)      return 0;
+  9 ( 0.01%)  => targets/fib.c:fib_R'2 (3x)
+ 12 ( 0.01%)    if (n == 1)
+  4 ( 0.00%)      return 1;
+  6 ( 0.00%)  => targets/fib.c:fib_R'2 (2x)
+ 16 ( 0.01%)    return fib_L(n - 1) + fib_R(n - 2);
+171 ( 0.10%)  => targets/fib.c:fib_R'2 (2x)
+ 21 ( 0.01%)  }
+  .           
+ 18 ( 0.01%)  int main() { 
+5,266 ( 3.21%)  => targets/fib.c:fib_L (1x)
+654 ( 0.40%)  => ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_runtime_resolve'2 (1x)
+ 13 ( 0.01%)    printf("fib(5) = %lu\n", fib_L(5));
+3,980 ( 2.43%)  => ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_runtime_resolve'2 (1x)
+ 15 ( 0.01%)    printf("L%d, R%d\n", L, R);
+1,218 ( 0.74%)  => ./stdio-common/printf.c:printf'2 (1x)
+  .           
+  .             // printf("fib(7) = %lu\n", fib(8));
+  .             // printf("fib(15) = %lu\n", fib_L(14));
+  .             // printf("fib(19) = %lu\n", fib(19));
+  2 ( 0.00%)  }
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./csu/../csu/libc-start.c
+  ./csu/init-first.c
+  ./elf/../elf/dl-sysdep.c
+  ./elf/../sysdeps/aarch64/dl-irel.h
+  ./elf/../sysdeps/aarch64/dl-machine.h
+  ./elf/../sysdeps/aarch64/dl-trampoline.S
+  ./elf/../sysdeps/generic/ldsodefs.h
+  ./elf/../sysdeps/posix/dl-fileid.h
+  ./elf/../sysdeps/unix/sysv/linux/dl-sysdep.c
+  ./elf/./dl-load.h
+  ./elf/./dl-map-segments.h
+  ./elf/dl-addr.c
+  ./elf/dl-cache.c
+  ./elf/dl-debug.c
+  ./elf/dl-deps.c
+  ./elf/dl-environ.c
+  ./elf/dl-error-skeleton.c
+  ./elf/dl-fini.c
+  ./elf/dl-hwcaps.c
+  ./elf/dl-iteratephdr.c
+  ./elf/dl-load.c
+  ./elf/dl-lookup.c
+  ./elf/dl-minimal.c
+  ./elf/dl-misc.c
+  ./elf/dl-object.c
+  ./elf/dl-open.c
+  ./elf/dl-reloc.c
+  ./elf/dl-runtime.c
+  ./elf/dl-sort-maps.c
+  ./elf/dl-tls.c
+  ./elf/dl-tunables.c
+  ./elf/dl-tunables.h
+  ./elf/dl-version.c
+  ./elf/do-rel.h
+  ./elf/get-dynamic-info.h
+  ./elf/rtld.c
+  ./gmon/../gmon/mcount.c
+  ./gmon/../sysdeps/posix/profil.c
+  ./gmon/gmon.c
+  ./io/../sysdeps/unix/sysv/linux/generic/xstat.c
+  ./io/../sysdeps/unix/sysv/linux/open64_nocancel.c
+  ./io/../sysdeps/unix/sysv/linux/wordsize-64/fxstat.c
+  ./io/../sysdeps/unix/sysv/linux/write.c
+  ./libio/filedoalloc.c
+  ./libio/fileops.c
+  ./libio/genops.c
+  ./libio/libioP.h
+  ./malloc/arena.c
+  ./malloc/malloc.c
+  ./malloc/scratch_buffer_set_array_size.c
+  ./misc/../sysdeps/unix/syscall-template.S
+  ./misc/../sysdeps/unix/sysv/linux/mmap64.c
+  ./misc/init-misc.c
+  ./misc/sbrk.c
+  ./nptl/register-atfork.c
+  ./setjmp/../sysdeps/aarch64/setjmp.S
+  ./signal/../sysdeps/unix/sysv/linux/sigaction.c
+  ./stdio-common/../libio/libioP.h
+  ./stdio-common/_itoa.c
+  ./stdio-common/printf.c
+  ./stdio-common/vfprintf-internal.c
+  ./stdlib/cxa_atexit.c
+  ./stdlib/cxa_finalize.c
+  ./stdlib/exit.c
+  ./stdlib/getenv.c
+  ./string/../sysdeps/aarch64/memset.S
+  ./string/../sysdeps/aarch64/multiarch/../memcpy.S
+  ./string/../sysdeps/aarch64/multiarch/../strlen.S
+  ./string/../sysdeps/aarch64/strchr.S
+  ./string/../sysdeps/aarch64/strchrnul.S
+  ./string/../sysdeps/aarch64/strcmp.S
+  ./string/../sysdeps/aarch64/strnlen.S
+  ./string/../sysdeps/aarch64/strrchr.S
+  ./string/strcspn.c
+  ./string/strdup.c
+  ./string/strncpy.c
+
+--------------------------------------------------------------------------------
+Ir           
+--------------------------------------------------------------------------------
+546 ( 0.33%)  events annotated
+

@@ -5,11 +5,12 @@
 #include "time_stack/time_stack.h"
 
 typedef struct { 
-  SourceInfo info;
   Instant start;
   Instant end;
-} FunctionCall;
+  SourceInfo src;
+  bool is_exit;
+} Call;
 
-FunctionCall* time_functions(const char *program, unsigned long *n_calls);
+void time_functions(const char *program, void(*call_handler)(Call c));
 
 #endif
