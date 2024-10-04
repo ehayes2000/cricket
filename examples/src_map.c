@@ -40,7 +40,7 @@ struct FileNode {
 
 
 
-bool _die_is_func(Dwarf_Die *dwarf_die){
+bool die_is_func(Dwarf_Die *dwarf_die){
   if (dwarf_die == NULL)
     return false;
   return dwarf_tag(dwarf_die) == DW_TAG_subprogram;
@@ -65,7 +65,7 @@ FnNode* _walk_tree(Dwarf_Die *dwarf_die, int *listLen, FnNode* fn){
   do
     {
       Dwarf_Die child;
-      if (_die_is_func(&die)){
+      if (die_is_func(&die)){
         fn->next = _make_node_die(&die);
         fn = fn->next;
         *listLen += 1;
